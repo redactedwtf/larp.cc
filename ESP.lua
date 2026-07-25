@@ -45,6 +45,11 @@ getgenv().Library = {
         ['FontSize'] = 12,
         ['FontType'] = 'none',
 
+        ['TeamCheck'] = {
+            ['Enabled'] = true,
+            ['ShowTeammates'] = false,
+        },
+
         ['Boxes'] = {
             ['Enabled'] = true,
             ['DynamicBoxes'] = true,
@@ -108,12 +113,6 @@ getgenv().Library = {
             ['Weapon'] = {
                 ['Enabled'] = true,
                 ['Color'] = Color3.fromRGB(255, 255, 255),
-            },
-        },
-
-            ['TeamCheck'] = {
-                ['Enabled'] = true,
-                ['ShowTeammates'] = false,
             },
         },
 
@@ -1044,6 +1043,7 @@ function Library:AddTarget(Player)
         ['LastArmorRatio'] = nil,
         ['LastWeapon'] = nil,
         ['LastWeaponColor'] = nil,
+        ['IsTeammate'] = false,
     }
     self:InitEsp(Data);
     self['Cache'][Player] = Data;
@@ -1299,6 +1299,17 @@ end
 function Library:Update(Player, Data)
     local Objects = Data['Objects']
 
+    -- TEAM CHECK
+    if Table['TeamCheck']['Enabled'] then
+        Data['IsTeammate'] = LocalPlayer.Team == Player.Team and Player.Team ~= nil
+        if not Table['TeamCheck']['ShowTeammates'] and Data['IsTeammate'] then
+            if Objects['TargetHolder'].Visible then
+                Objects['TargetHolder'].Visible = false
+            end
+            return
+        end
+    end
+
     if not Data['RootPart'] then
         if Objects['TargetHolder'].Visible then
             Objects['TargetHolder'].Visible = false
@@ -1534,6 +1545,13 @@ function Library:Update(Player, Data)
         end
 
         local NameColor = TextsCfg['Name']['Color']
+        if Table['TeamCheck']['Enabled'] and Table['TeamCheck']['ShowTeammates'] then
+            if Data['IsTeammate'] then
+                NameColor = Color3.fromRGB(0, 255, 0)
+            else
+                NameColor = Color3.fromRGB(255, 0, 0)
+            end
+        end
 
         if Data['LastNameColor'] ~= NameColor then
             Objects['TargetName'].TextColor3 = NameColor
