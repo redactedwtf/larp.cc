@@ -38,7 +38,7 @@ getgenv().Library = {
 
     ['Table'] = {
         ['Enabled'] = true,
-        ['ShowLocalPlayer'] = true,
+        ['ShowLocalPlayer'] = false,
         ['Distance'] = 7520,
         ['RefreshRate'] = 60,
         ['Font'] = 'TahomaBold',
@@ -108,6 +108,12 @@ getgenv().Library = {
             ['Weapon'] = {
                 ['Enabled'] = true,
                 ['Color'] = Color3.fromRGB(255, 255, 255),
+            },
+        },
+
+            ['TeamCheck'] = {
+                ['Enabled'] = true,
+                ['ShowTeammates'] = false,
             },
         },
 
