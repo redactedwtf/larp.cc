@@ -1299,14 +1299,48 @@ end
 function Library:Update(Player, Data)
     local Objects = Data['Objects']
 
-    -- TEAM CHECK
+    -- TEAM CHECK FOR CSGO STYLE GAME
     if Table['TeamCheck']['Enabled'] then
-        Data['IsTeammate'] = LocalPlayer.Team == Player.Team and Player.Team ~= nil
-        if not Table['TeamCheck']['ShowTeammates'] and Data['IsTeammate'] then
-            if Objects['TargetHolder'].Visible then
-                Objects['TargetHolder'].Visible = false
+        local CharactersFolder = workspace:FindFirstChild("Characters") or workspace:FindFirstChild("Players")
+        if CharactersFolder then
+            local Terrorists = CharactersFolder:FindFirstChild("Terrorists")
+            local CounterTerrorists = CharactersFolder:FindFirstChild("Counter-Terrorists")
+            
+            if Terrorists and CounterTerrorists then
+                local PlayerInT = Terrorists:FindFirstChild(Player.Name) ~= nil
+                local PlayerInCT = CounterTerrorists:FindFirstChild(Player.Name) ~= nil
+                local LocalInT = Terrorists:FindFirstChild(LocalPlayer.Name) ~= nil
+                local LocalInCT = CounterTerrorists:FindFirstChild(LocalPlayer.Name) ~= nil
+                
+                -- Check if both players are in the same team
+                Data['IsTeammate'] = (PlayerInT and LocalInT) or (PlayerInCT and LocalInCT)
+                
+                -- Hide teammates if ShowTeammates is false
+                if not Table['TeamCheck']['ShowTeammates'] and Data['IsTeammate'] then
+                    if Objects['TargetHolder'].Visible then
+                        Objects['TargetHolder'].Visible = false
+                    end
+                    return
+                end
+            else
+                -- Fallback to normal team check
+                Data['IsTeammate'] = LocalPlayer.Team == Player.Team and Player.Team ~= nil
+                if not Table['TeamCheck']['ShowTeammates'] and Data['IsTeammate'] then
+                    if Objects['TargetHolder'].Visible then
+                        Objects['TargetHolder'].Visible = false
+                    end
+                    return
+                end
             end
-            return
+        else
+            -- Fallback to normal team check
+            Data['IsTeammate'] = LocalPlayer.Team == Player.Team and Player.Team ~= nil
+            if not Table['TeamCheck']['ShowTeammates'] and Data['IsTeammate'] then
+                if Objects['TargetHolder'].Visible then
+                    Objects['TargetHolder'].Visible = false
+                end
+                return
+            end
         end
     end
 
@@ -1547,9 +1581,9 @@ function Library:Update(Player, Data)
         local NameColor = TextsCfg['Name']['Color']
         if Table['TeamCheck']['Enabled'] and Table['TeamCheck']['ShowTeammates'] then
             if Data['IsTeammate'] then
-                NameColor = Color3.fromRGB(0, 255, 0)
+                NameColor = Color3.fromRGB(0, 255, 0) -- Green for teammates
             else
-                NameColor = Color3.fromRGB(255, 0, 0)
+                NameColor = Color3.fromRGB(255, 0, 0) -- Red for enemies
             end
         end
 
