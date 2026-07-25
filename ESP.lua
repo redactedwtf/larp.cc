@@ -65,20 +65,20 @@ getgenv().Library = {
 
             ['Box Glow'] = {
                 ['Enabled'] = true,
-                ['Top'] = Color3.fromRGB(0, 255, 255),
-                ['Bot'] = Color3.fromRGB(0, 255, 255),
+                ['Top'] = Color3.fromRGB(180, 180, 180),
+                ['Bot'] = Color3.fromRGB(100, 100, 100),
                 ['Transparency'] = {0.75, 0.75},
             },
 
             ['Gradients'] = {
-                ['Top'] = Color3.fromRGB(255, 255, 255),
-                ['Bot'] = Color3.fromRGB(0, 255, 255),
+                ['Top'] = Color3.fromRGB(200, 200, 200),
+                ['Bot'] = Color3.fromRGB(120, 120, 120),
             },
 
             ['Filled'] = {
                 ['Enabled'] = true,
-                ['Top'] = Color3.fromRGB(255, 255, 255),
-                ['Bot'] = Color3.fromRGB(0, 255, 255),
+                ['Top'] = Color3.fromRGB(180, 180, 180),
+                ['Bot'] = Color3.fromRGB(80, 80, 80),
                 ['Transparency'] = {1, 0.65},
             },
         },
@@ -86,50 +86,50 @@ getgenv().Library = {
         ['Bars'] = {
             ['Health Bar'] = {
                 ['Enabled'] = true,
-                ['Top'] = Color3.fromRGB(0, 255, 0),
-                ['Mid'] = Color3.fromRGB(255, 170, 0),
-                ['Bot'] = Color3.fromRGB(255, 0, 0),
+                ['Top'] = Color3.fromRGB(180, 180, 180),
+                ['Mid'] = Color3.fromRGB(130, 130, 130),
+                ['Bot'] = Color3.fromRGB(80, 80, 80),
             },
 
             ['Armor Bar'] = {
                 ['Enabled'] = false,
-                ['Top'] = Color3.fromRGB(255, 255, 255),
-                ['Mid'] = Color3.fromRGB(220, 220, 220),
-                ['Bot'] = Color3.fromRGB(180, 180, 180),
+                ['Top'] = Color3.fromRGB(200, 200, 200),
+                ['Mid'] = Color3.fromRGB(160, 160, 160),
+                ['Bot'] = Color3.fromRGB(120, 120, 120),
             },
         },
 
         ['Texts'] = {
             ['Name'] = {
                 ['Enabled'] = true,
-                ['Color'] = Color3.fromRGB(255, 255, 255),
+                ['Color'] = Color3.fromRGB(220, 220, 220),
             },
 
             ['Distance'] = {
                 ['Enabled'] = true,
-                ['Color'] = Color3.fromRGB(255, 255, 255),
+                ['Color'] = Color3.fromRGB(180, 180, 180),
             },
 
             ['Weapon'] = {
                 ['Enabled'] = true,
-                ['Color'] = Color3.fromRGB(255, 255, 255),
+                ['Color'] = Color3.fromRGB(200, 200, 200),
             },
         },
 
         ['Flags'] = {
             ['Walking'] = {
                 ['Enabled'] = true,
-                ['Color'] = Color3.fromRGB(255, 0, 0),
+                ['Color'] = Color3.fromRGB(160, 160, 160),
                 ['Text'] = "Walking",
             },
             ['Jumping'] = {
                 ['Enabled'] = true,
-                ['Color'] = Color3.fromRGB(144, 238, 144),
+                ['Color'] = Color3.fromRGB(200, 200, 200),
                 ['Text'] = "Jumping",
             },
             ['Swimming'] = {
                 ['Enabled'] = true,
-                ['Color'] = Color3.fromRGB(0, 255, 255),
+                ['Color'] = Color3.fromRGB(140, 140, 140),
                 ['Text'] = "Swimming",
             },
         }
