@@ -106,29 +106,29 @@ getgenv().Library = {
             },
 
             ['Distance'] = {
-                ['Enabled'] = true,
+                ['Enabled'] = false,
                 ['Color'] = Color3.fromRGB(180, 180, 180),
             },
 
             ['Weapon'] = {
-                ['Enabled'] = true,
+                ['Enabled'] = false,
                 ['Color'] = Color3.fromRGB(200, 200, 200),
             },
         },
 
         ['Flags'] = {
             ['Walking'] = {
-                ['Enabled'] = true,
+                ['Enabled'] = false,
                 ['Color'] = Color3.fromRGB(160, 160, 160),
                 ['Text'] = "Walking",
             },
             ['Jumping'] = {
-                ['Enabled'] = true,
+                ['Enabled'] = false,
                 ['Color'] = Color3.fromRGB(200, 200, 200),
                 ['Text'] = "Jumping",
             },
             ['Swimming'] = {
-                ['Enabled'] = true,
+                ['Enabled'] = false,
                 ['Color'] = Color3.fromRGB(140, 140, 140),
                 ['Text'] = "Swimming",
             },
