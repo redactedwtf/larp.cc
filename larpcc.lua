@@ -1,4 +1,4 @@
--- This script was generated using the MoonVeil Obfuscator v1.4.5 [https://moonveil.cc]
+-- larp.cc
 
 local ct,ex,ir,yz,cm,eg=type,pairs,getmetatable,bit32.bxor
 local o_,Rq,PD,qp,Lt,Pk,qb,nb,Lo,Rm,G,Pv,YF,Ra,lk,_E,Uu,us,vh,g,Ip,Kp,dw,Cw,_G;
