@@ -1,7 +1,7 @@
 -- Arcane Notification System (Standalone)
 -- Extracted from Arcane UI Library
 
-local NotificationSystem = {}
+local NotificationSystem = {} -- js used ai to do ts lazy asf
 
 -- Services
 local Players = game:GetService("Players")
